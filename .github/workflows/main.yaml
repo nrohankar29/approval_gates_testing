@@ -1,0 +1,21 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Dev Job
+        run: echo "Running development job..."
+
+  staging:
+    needs: dev
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - name: Run Staging Job
+        run: echo "Running staging job..."
