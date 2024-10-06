@@ -8,14 +8,25 @@ jobs:
   dev:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
       - name: Run Dev Job
-        run: echo "Running development job..."
+        run: |
+          echo "Running development job..."
+          # Your dev build and test commands here
 
   staging:
     needs: dev
     runs-on: ubuntu-latest
     environment:
       name: staging
+      url: https://staging.example.com
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
       - name: Run Staging Job
-        run: echo "Running staging job..."
+        run: |
+          echo "Running staging job..."
+          # Your staging deployment commands here
