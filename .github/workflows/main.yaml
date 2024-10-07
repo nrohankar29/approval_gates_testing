@@ -29,4 +29,4 @@ jobs:
       - name: Run Staging Job
         run: |
           echo "Running staging job..."
-          # Your staging deployment commands here
+          echo "staging test1 secret: ${{ secrets.TEST1 }}"
