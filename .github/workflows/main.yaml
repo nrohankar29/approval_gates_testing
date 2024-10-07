@@ -7,6 +7,8 @@ on:
 jobs:
   dev:
     runs-on: ubuntu-latest
+    environment:
+      name: dev
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -14,7 +16,7 @@ jobs:
       - name: Run Dev Job
         run: |
           echo "Running development job..."
-          # Your dev build and test commands here
+          echo "dev test1 secret: ${{ secrets.TEST1 }}"
 
   staging:
     needs: dev
